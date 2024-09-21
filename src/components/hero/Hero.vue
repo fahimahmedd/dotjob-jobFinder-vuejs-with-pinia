@@ -50,14 +50,11 @@
 
 .hero-search-container {
   max-width: 700px;
-  //   background-color: #fff;
   border-radius: 16px;
-  //   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  //   padding: 0 20px;
 }
 .hero-search-input {
   height: 60px;
