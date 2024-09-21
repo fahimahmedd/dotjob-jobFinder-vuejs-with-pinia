@@ -51,5 +51,6 @@ import { ref } from 'vue';
     position: absolute !important;
     width: 100%;
     background-color: transparent !important;
+    z-index: 10;
    }
 </style>
