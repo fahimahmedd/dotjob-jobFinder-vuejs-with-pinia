@@ -13,16 +13,7 @@
           Find your job without <br />
           any hassle.
         </div>
-        <div class="hero-search-container mx-auto mt-10 mb-10">
-          <v-text-field
-            placeholder="Search by keyword"
-            hide-details
-            density="compact"
-            variant="plain"
-            class="hero-search-input"
-          ></v-text-field>
-          <v-btn class="hero-search-btn" color="primary" size="large"> Search Job </v-btn>
-        </div>
+        <JobSearch />
         <div class="text-subtitle-1 font-weight-regular text-grey-darken-4">
           Unlock your true ptential and discover a world of opportunities <br />
           that align with your skills , interests and aspiration.
@@ -30,24 +21,20 @@
       </v-card>
     </v-container>
     <div class="hero-floating-container">
-       <div class="floating-item floating-item-1">
+      <div class="floating-item floating-item-1">
         <v-img class="float-img" src="../../assets/images/hero/floating-2.jpeg"></v-img>
-       </div>
-       <div class="floating-item floating-item-2">
+      </div>
+      <div class="floating-item floating-item-2">
         <v-img class="float-img" src="../../assets/images/hero/floating-1.png"></v-img>
-       </div>
-       <div class="floating-item-outline floating-item-3">
-        
-       </div>
-       <div class="floating-item-outline floating-item-4">
-         
-       </div>
-       <div class="floating-item floating-item-5">
+      </div>
+      <div class="floating-item-outline floating-item-3"></div>
+      <div class="floating-item-outline floating-item-4"></div>
+      <div class="floating-item floating-item-5">
         <v-img class="float-img" src="../../assets/images/hero/floating-3.png"></v-img>
-       </div>
-       <div class="floating-item floating-item-6">
+      </div>
+      <div class="floating-item floating-item-6">
         <v-img class="float-img" src="../../assets/images/hero/floating-4.png"></v-img>
-       </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,81 +58,61 @@
   color: #244034;
 }
 
-.hero-search-container {
-  max-width: 750px;
-  border-radius: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-}
-.hero-search-input {
-  height: 60px;
-  background-color: #fff;
-  padding: 10px 30px;
-  border-radius: 35px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-.hero-search-btn {
-  width: 170px;
-  height: 58px;
-  border-radius: 35px !important;
-}
 .text-subtitle-1 {
   line-height: 26px;
 }
 
-.floating-item{
+.floating-item {
   position: absolute;
   height: 80px;
   width: 80px;
   background-color: #fff;
   border-radius: 16px;
-  opacity: .4;
+  opacity: 0.4;
   display: flex;
   justify-content: center;
   align-items: center;
-  .float-img{
+  .float-img {
     filter: grayscale(100%);
     max-height: 70px;
     max-width: 70px;
     object-fit: contain;
   }
 }
-.floating-item-outline{
+.floating-item-outline {
   position: absolute;
   height: 70px;
   width: 70px;
   border-radius: 16px;
-  opacity: .5;
+  opacity: 0.5;
   border: 5px solid #fff;
   transform: rotate(-25deg);
 }
-.floating-item-1{
+.floating-item-1 {
   top: 20%;
   left: 10%;
 }
-.floating-item-2{
+.floating-item-2 {
   top: 20%;
   right: 10%;
 }
-.floating-item-3{
+.floating-item-3 {
   top: 40%;
   left: 20%;
 }
-.floating-item-4{
+.floating-item-4 {
   top: 40%;
   right: 20%;
 }
-.floating-item-5{
+.floating-item-5 {
   bottom: 30%;
   left: 5%;
 }
-.floating-item-6{
+.floating-item-6 {
   bottom: 30%;
   right: 5%;
 }
-.hero-content{
+.hero-content {
   z-index: 10;
 }
 </style>

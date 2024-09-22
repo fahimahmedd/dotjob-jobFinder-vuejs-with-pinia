@@ -1,11 +1,11 @@
 <template>
-  <Header />
   <Hero />
   <FeaturePost />
+  <AddJobFeature />
 </template>
 
 <script setup>
-import Header from "@/components/header/Header.vue";
+import AddJobFeature from "@/components/feature/AddJobFeature.vue";
 import Hero from "@/components/hero/Hero.vue";
 
 //

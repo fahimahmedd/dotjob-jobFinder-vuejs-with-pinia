@@ -1,10 +1,9 @@
 <template>
-
-<div class="app-header">
-    <v-container class="d-flex align-center justify-space-between">
+  <div class="app-header">
+    <v-container class="d-flex align-center justify-space-between pa-0">
       <!-- App logo -->
       <div class="log">
-        <v-img width="150" aspect-ratio="16/9" src="../../assets/images/logo/logo.png">
+        <v-img width="130" aspect-ratio="16/9" src="../../assets/images/logo/logo.png">
         </v-img>
       </div>
 
@@ -19,7 +18,7 @@
             :key="item.text"
             :to="item.route"
           >
-           {{ item.text }}
+            {{ item.text }}
           </v-btn>
         </div>
         <v-btn
@@ -37,20 +36,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-   const links = ref([
-    {text:'Home' , route:'/'},
-    {text:'About' , route:'/'},
-    {text:'Feature' , route:'/'},
-   ])
+const links = ref([
+  { text: "Home", route: "/" },
+  { text: "Jobs", route: "/jobs" },
+  { text: "Add Job", route: "/" },
+]);
 </script>
 
 <style scoped lang="scss">
-   .app-header{
-    position: absolute !important;
-    width: 100%;
-    background-color: transparent !important;
-    z-index: 10;
-   }
+.app-header {
+  position: absolute !important;
+  width: 100%;
+  background-color: transparent !important;
+  z-index: 10;
+  padding: 10px 0;
+}
 </style>

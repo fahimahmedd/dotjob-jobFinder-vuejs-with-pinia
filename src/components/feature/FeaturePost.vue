@@ -3,37 +3,69 @@
     <div class="text-h4 text-center secondary-font font-weight-bold">
       Featured companies actively hiring
     </div>
-    <v-row class="mt-10">
-      <v-col cols="3">
-        <v-card class="feature-card">
-          <v-card-item class="text-center">
-            <v-img src="../../assets/images/hero/floating-1.png" max-height="70"></v-img>
-            <div class="text-h6 mt-2 secondary-font">BJ IT</div>
-            <div class="text-subtitle-1 mt-1 secondary-font font-weight-bold">
-              Assistance Manager- IT
-            </div>
-            <p class="text-subtitle-2 font-weight-regular mt-3">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit, nobis!
-            </p>
-          </v-card-item>
-        </v-card>
+    <v-row class="mt-10 justify-center">
+      <v-col cols="3" v-for="(company, index) in featureCompany" :key="index">
+        <JobFeatureCard :company="company" />
       </v-col>
-      <v-col cols="3"> Crad </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import JobFeatureCard from "./JobFeatureCard.vue";
 
-<style lang="scss" scoped>
-.feature-card {
-  height: 360px;
-  width: 100%;
-  border-radius: 22px;
-  border: 1px solid #c3c3c351;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-  &:hover {
-    box-shadow: rgba(100, 100, 111, 0.125) 0px 7px 29px 0px;
-  }
-}
-</style>
+const featureCompany = ref([
+  {
+    name: "Meghna Group of Industries",
+    logo: "src/assets/images/hero/floating-3.png",
+    postNumber: 6,
+    moto: "One of the largest Bangladeshi industrial conglomerates",
+    route: "/",
+  },
+  {
+    name: "BJIT Group",
+    logo: "src/assets/images/hero/floating-1.png",
+    postNumber: 12,
+    moto: "Best software development company in Bangladesh",
+    route: "/",
+  },
+  {
+    name: "Anwar Group of Industries",
+    logo: "src/assets/images/hero/floating-2.jpeg",
+    postNumber: 6,
+    moto: "One of the largest and oldest Bangladeshi conglomerates",
+    route: "/",
+  },
+  {
+    name: "DBL Group",
+    logo: "src/assets/images/hero/floating-4.png",
+    postNumber: 8,
+    moto: "Bangladeshi diversified conglomerate based in Dhaka",
+    route: "/",
+  },
+  {
+    name: "ILLIYEEN",
+    logo: "src/assets/images/hero/floating-5.png",
+    postNumber: 3,
+    moto: "ILLIYEEN , one of the fastest-growing lifestyle brands",
+    route: "/",
+  },
+  {
+    name: "Oxfam International",
+    logo: "src/assets/images/hero/floating-6.png",
+    postNumber: 5,
+    moto: "Focusing on the alleviation of global poverty, founded in 1942 ",
+    route: "/",
+  },
+  {
+    name: "SQUARE Group",
+    logo: "src/assets/images/hero/floating-7.png",
+    postNumber: 7,
+    moto: "Bangladeshi diversified multinantional conglomerate.",
+    route: "/",
+  },
+]);
+</script>
+
+<style lang="scss" scoped></style>
