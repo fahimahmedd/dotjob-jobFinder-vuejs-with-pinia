@@ -2,18 +2,14 @@
   <v-card class="job-card pa-3">
     <v-card-item>
       <div class="d-flex justify-space-between">
-        <v-chip density="compact" color="primary"> Full Time </v-chip>
-        <v-img
-          src="../../assets/images/hero/floating-3.png"
-          max-height="40"
-          max-width="60"
-        ></v-img>
+        <v-chip density="compact" color="primary"> {{ jobList.type }} </v-chip>
+        <v-img :src="jobList.company.logo" max-height="40" max-width="60"></v-img>
       </div>
       <div class="text-subtitle-1 font-weight-medium mt-3">
-        Remote Job | Freshers! Computer Science Graduates | 1-year Contract
+        {{ jobList.title }}
       </div>
       <div class="text-subtitle-1 primary-color secondary-font font-weight-bold mt-2">
-        Meghna Group of Industries
+        {{ jobList.company.name }}
       </div>
       <div class="d-flex align-center mt-2">
         <div class="text-subtitle-2 text-grey-darken-3">
@@ -21,30 +17,38 @@
           <span>2 - 4 years</span>
         </div>
         <div class="text-subtitle-2 ml-4">
-          <span> Salary :</span>
-          <span> 70k - 90k</span>
+          <span> Salary : </span>
+          <span> {{ jobList.salary }} </span>
         </div>
       </div>
       <p class="mt-3 text-subtitle-2 font-weight-regular">
-        Eco-Social Development Organization (ESDO) started its journey in 1988 with a
-        noble vision to stand in solidarity with the poor and marginalized
+        {{ jobList.company.description.substring(0, 90) + ".." }}
       </p>
       <div class="job-card-footer">
-        <div class="text-caption">4 Days ago</div>
         <div class="d-flex align-center">
-          <span class="mdi mdi-bookmark-outline"></span>
-          <span class="text-caption">Save</span>
+          <span class="mdi mdi-map-marker-circle"></span>
+          <span class="text-caption">{{ jobList.location }}</span>
         </div>
+        <div class="text-caption">4 Days ago</div>
       </div>
     </v-card-item>
   </v-card>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineProps } from "vue";
+
+const props = defineProps({
+  jobList: {
+    type: Object,
+    required: true,
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 .job-card {
-  height: 320px;
+  height: 300px;
   width: 100%;
   border-radius: 22px;
   border: 1px solid #c3c3c351;
@@ -67,6 +71,7 @@
   align-items: center;
   .mdi {
     font-size: 20px;
+    margin-right: 4px;
   }
 }
 .job-type {

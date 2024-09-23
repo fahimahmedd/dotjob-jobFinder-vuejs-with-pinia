@@ -13,10 +13,12 @@
         <div class="navigation-link mr-10">
           <v-btn
             size="small"
-            variant="plain"
+            variant="tex"
             v-for="item in links"
             :key="item.text"
             :to="item.route"
+            color="#343434"
+            active-color="primary"
           >
             {{ item.text }}
           </v-btn>
@@ -37,12 +39,18 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 const links = ref([
   { text: "Home", route: "/" },
   { text: "Jobs", route: "/jobs" },
-  { text: "Add Job", route: "/" },
+  { text: "Add Job", route: "/f" },
 ]);
+
+const isActiveLink = (routePath) => {
+  const route = useRoute();
+  return route.path === routePath;
+};
 </script>
 
 <style scoped lang="scss">

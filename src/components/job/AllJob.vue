@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col cols="4" v-for="job in jobs" :key="job.id">
-          <JobCard />
+          <JobCard :job-list="job" />
         </v-col>
       </v-row>
     </v-container>
@@ -11,9 +11,8 @@
 </template>
 
 <script setup>
-import Category from "../category/Category.vue";
 import jobData from "@/jobs.json";
-
+import JobCard from "./JobCard.vue";
 import { ref } from "vue";
 
 const jobs = ref(jobData);
