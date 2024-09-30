@@ -8,29 +8,37 @@
       </div>
 
       <!-- Navigation links -->
-
       <div class="login-btn d-flex align-center">
         <div class="navigation-link mr-10">
           <v-btn
             size="small"
-            variant="tex"
-            v-for="item in links"
-            :key="item.text"
+            variant="text"
+            v-for="(item, index) in links"
+            :key="index"
             :to="item.route"
             color="#343434"
             active-color="primary"
           >
             {{ item.text }}
           </v-btn>
+          <v-btn
+            size="small"
+            variant="text"
+            color="#343434"
+            active-color="primary"
+            @click.stop="useAuth.drawerHandeler"
+          >
+            Add Job
+          </v-btn>
         </div>
         <v-btn
           min-width="100"
           append-icon="mdi-account-circle"
-          variant="outlined"
           color="primary"
           rounded="lg"
+          @click.stop="useAuth.drawerHandeler"
         >
-          Login
+          Company
         </v-btn>
       </div>
     </v-container>
@@ -38,13 +46,14 @@
 </template>
 
 <script setup>
+import { useAuthenticationStore } from "@/stores/useAuthentication";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 
+const useAuth = useAuthenticationStore();
 const links = ref([
   { text: "Home", route: "/" },
   { text: "Jobs", route: "/jobs" },
-  { text: "Add Job", route: "/f" },
 ]);
 
 const isActiveLink = (routePath) => {

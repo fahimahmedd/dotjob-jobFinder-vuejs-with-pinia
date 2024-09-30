@@ -31,7 +31,7 @@
 }
 .hero-search-btn {
   width: 170px;
-  height: 58px;
+  height: 58px !important;
   border-radius: 35px !important;
 }
 </style>

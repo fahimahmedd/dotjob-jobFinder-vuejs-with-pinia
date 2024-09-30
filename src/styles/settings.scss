@@ -33,6 +33,7 @@ $secondary-font: "Rajdhani", sans-serif;
     --primary-color: #4C7766;
     --secondary-color: #f4fecf;
     --assh-color: #f3f3f3;
+    --text-color: #474d6a;
 }
 li {
     list-style: none;
@@ -64,7 +65,9 @@ li {
 .color-white{
     color: #fff;
 }
-
+.text-color{
+    color: var(--text-color);
+}
 // Section Padding
 .section-padding{
     padding: 70px 0;

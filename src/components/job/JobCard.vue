@@ -1,33 +1,39 @@
 <template>
-  <v-card class="job-card pa-3">
+  <v-card class="job-card border pa-3" elevation="0">
     <v-card-item>
       <div class="d-flex justify-space-between">
-        <v-chip density="compact" color="primary"> {{ jobList.type }} </v-chip>
-        <v-img :src="jobList.company.logo" max-height="40" max-width="60"></v-img>
+        <v-chip density="compact" color="primary">
+          {{ jobItem.type || "Hybrid" }}
+        </v-chip>
+        <v-img
+          :src="'data:image/png;base64,' + jobItem.company.logo"
+          max-height="40"
+          max-width="60"
+        ></v-img>
       </div>
       <div class="text-subtitle-1 font-weight-medium mt-3">
-        {{ jobList.title }}
+        {{ jobItem.title }}
       </div>
       <div class="text-subtitle-1 primary-color secondary-font font-weight-bold mt-2">
-        {{ jobList.company.name }}
+        {{ jobItem.company.name }}
       </div>
       <div class="d-flex align-center mt-2">
         <div class="text-subtitle-2 text-grey-darken-3">
           <span> Experiance : </span>
-          <span>2 - 4 years</span>
+          <span>{{ jobItem.experience }}</span>
         </div>
         <div class="text-subtitle-2 ml-4">
           <span> Salary : </span>
-          <span> {{ jobList.salary }} </span>
+          <span> {{ jobItem.salary }} </span>
         </div>
       </div>
       <p class="mt-3 text-subtitle-2 font-weight-regular">
-        {{ jobList.company.description.substring(0, 90) + ".." }}
+        {{ jobItem.description.substring(0, 90) + ".." }}
       </p>
       <div class="job-card-footer">
         <div class="d-flex align-center">
           <span class="mdi mdi-map-marker-circle"></span>
-          <span class="text-caption">{{ jobList.location }}</span>
+          <span class="text-caption">{{ jobItem.location }}</span>
         </div>
         <div class="text-caption">4 Days ago</div>
       </div>
@@ -36,12 +42,13 @@
 </template>
 
 <script setup>
+import { url } from "@/plugins/baseUrl";
 import { defineProps } from "vue";
 
 const props = defineProps({
-  jobList: {
+  jobItem: {
     type: Object,
-    required: true,
+    default: {},
   },
 });
 </script>
@@ -51,14 +58,9 @@ const props = defineProps({
   height: 300px;
   width: 100%;
   border-radius: 22px;
-  border: 1px solid #c3c3c351;
-  box-shadow: rgba(115, 115, 124, 0.064) 0px 5px 17px 0px;
+  background: linear-gradient(rgb(255, 255, 255), #f1f9d52e 130%);
   border-radius: 26px;
   position: relative;
-  &:hover {
-    background: linear-gradient(rgb(255, 255, 255), #f1f9d52e 130%);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  }
 }
 .job-card-footer {
   position: absolute;
