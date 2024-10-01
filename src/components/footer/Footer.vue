@@ -54,4 +54,11 @@ ul {
     }
   }
 }
+
+// BreakPoint
+@media (min-width: 280px) and (max-width: 599.98px) {
+  .text-h3 {
+    font-size: 30px !important;
+  }
+}
 </style>

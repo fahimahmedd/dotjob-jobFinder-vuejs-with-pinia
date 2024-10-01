@@ -1,46 +1,56 @@
+<script setup>
+const props = defineProps({
+  jobDetail: {
+    type: Object,
+    default: {},
+  },
+});
+</script>
+
 <template>
   <div class="job-details pa-10">
-    <div class="text-h5 font-weight-medium">Diagnostics Software Engineering Lead</div>
+    <div class="text-h5 font-weight-medium">{{ jobDetail.title || "No Title" }}</div>
     <div class="top-content d-flex justify-space-between">
       <div>
         <div
           class="text-subtitle-1 d-flex font-weight-bold mt-2 align-center primary-color"
         >
-          Dulal Brothers Limited,
+          {{ jobDetail.company?.name || "No Company Name" }}
         </div>
-        <div class="d-flex align-center mt-2">
-          <div class="text-subtitle-2 text-grey-darken-3">
-            <span class="text-color"> Experiance : </span>
-            <span>2 - 4 years</span>
+        <div class="d-flex align-center mt-2 m-flex-adjust">
+          <div class="text-subtitle-2 text-grey-darken-3 m-adjust">
+            <span class="text-color"> Experience : </span>
+            <span>{{ jobDetail.experience || "N/A" }}</span>
           </div>
-          <span class="mx-2">|</span>
-          <div class="text-subtitle-2">
+          <span class="mx-2 d-none d-flex-md">|</span>
+          <div class="text-subtitle-2 m-adjust">
             <span class="text-color"> Salary : </span>
-            <span> 50k - 150k </span>
+            <span> {{ jobDetail.salary || "N/A" }} </span>
           </div>
-          <span class="mx-2">|</span>
-          <div class="text-subtitle-2 text-grey-darken-3">
+          <span class="mx-2 d-none d-flex-md">|</span>
+          <div class="text-subtitle-2 text-grey-darken-3 m-adjust">
             <span class="text-color"> Job Type : </span>
-            <span>Full Time</span>
+            <span>{{ jobDetail.type || "N/A" }}</span>
           </div>
         </div>
-        <div class="text-subtitle-2 text-grey-darken-3 mt-1">
+        <div class="text-subtitle-2 text-grey-darken-3 mt-1 m-adjust">
           <span class="text-color"> Location : </span>
-          <span>Mirpur Dhaka - 1216</span>
+          <span>{{ jobDetail.location || "N/A" }}</span>
         </div>
         <div class="text-subtitle-2 text-grey-darken-3 mt-4">
           <span class="primary-color"> Deadline : </span>
-          <span>27 October 2024</span>
+          <span>{{ jobDetail.deadline || "N/A" }}</span>
         </div>
       </div>
 
       <div>
         <v-img
-          src="../../assets/images/hero/floating-4.png"
+          :src="'data:image/png;base64,' + jobDetail.company?.logo"
           height="80"
           width="80"
           class="mr-4 border pa-1"
           rounded="lg"
+          v-if="jobDetail.company?.logo"
         ></v-img>
       </div>
     </div>
@@ -107,13 +117,13 @@
       <div class="text-subtitle-2 font-weight-medium mt-4">Email Your C.V</div>
       <div class="text-subtitle-2 text-grey-darken-3 font-weight-regular mt-2">
         Send your C.V at
-        <a href="#" class="primary-color font-weight-medium">eilifo@gmail.com</a>
+        <a href="#" class="primary-color font-weight-medium">{{
+          jobDetail.company?.contactEmail
+        }}</a>
       </div>
     </div>
   </div>
 </template>
-
-<script setup></script>
 
 <style lang="scss" scoped>
 .job-description {
@@ -125,6 +135,16 @@
       color: var(--text-color);
       margin-top: 6px;
     }
+  }
+}
+
+@media (min-width: 280px) and (max-width: 676.98px) {
+  .m-flex-adjust {
+    flex-direction: column !important;
+    align-items: self-start !important;
+  }
+  .m-adjust {
+    margin-top: 10px;
   }
 }
 </style>

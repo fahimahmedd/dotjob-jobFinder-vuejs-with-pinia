@@ -34,4 +34,15 @@
   height: 58px !important;
   border-radius: 35px !important;
 }
+
+@media (min-width: 280px) and (max-width: 599.98px) {
+  .hero-search-input {
+    height: 50px;
+    padding: 5px 10px 5px 20px;
+  }
+  .hero-search-btn {
+    width: 110px;
+    height: 49px !important;
+  }
+}
 </style>

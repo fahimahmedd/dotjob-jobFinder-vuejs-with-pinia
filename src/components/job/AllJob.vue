@@ -18,8 +18,15 @@ const props = defineProps({
   <div class="all-job">
     <v-container>
       <v-row>
-        <v-col cols="4" v-for="(job, index) in allJobs" :key="index">
-          <JobCard :job-item="job" @click="jobsStore.drawerHandeler" />
+        <v-col
+          cols="12"
+          lg="4"
+          sm="6"
+          md="6"
+          v-for="(job, index) in allJobs"
+          :key="index"
+        >
+          <JobCard :job-item="job" @click="jobsStore.drawerHandeler(job.id)" />
         </v-col>
       </v-row>
     </v-container>

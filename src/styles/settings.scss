@@ -70,7 +70,7 @@ li {
 }
 // Section Padding
 .section-padding{
-    padding: 70px 0;
+    padding: 70px 10px;
 }
 .section-padding-top{
     padding-top: 70px;
@@ -151,3 +151,11 @@ p{
 .swiper-button-disabled{
     display: none;
 }
+
+
+// BreakPoint 
+@media (min-width: 280px) and (max-width: 599.98px) {
+  
+
+
+  }

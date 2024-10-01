@@ -1,5 +1,6 @@
 <script setup>
 import { useAuthenticationStore } from "@/stores/useAuthentication";
+import { useCompanysStore } from "@/stores/useCompanys";
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 const name = ref();
@@ -9,7 +10,7 @@ const confirm_password = ref();
 const showPass = ref(false);
 const showConfirmPass = ref(false);
 const useAuth = useAuthenticationStore();
-
+const useCompany = useCompanysStore();
 const emit = defineEmits();
 
 const register = async () => {
@@ -24,6 +25,8 @@ const register = async () => {
 
   try {
     if (res.response.value.status === 201) {
+      const userId = res.response.value.data.id;
+      useCompany.getUser(userId);
       useAuth.authSwitch();
       emit("showSnacbar");
     }
@@ -55,7 +58,7 @@ const isSubmitDisable = computed(() => {
 </script>
 
 <template>
-  <v-card width="100%" max-width="400" elevation="0" class="mx-auto mt-10 pl-8">
+  <v-card width="100%" max-width="400" elevation="0" class="mx-auto mt-10 pl-8 auth-card">
     <div class="text-h5 font-weight-black text-uppercase text-center mb-5">Sign Up</div>
     <v-divider class="mb-8"></v-divider>
 
@@ -123,4 +126,12 @@ const isSubmitDisable = computed(() => {
   </v-card>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@media (min-width: 280px) and (max-width: 599.98px) {
+  .auth-card {
+    padding-left: 0px !important;
+    padding: 20px !important;
+    background-color: transparent;
+  }
+}
+</style>

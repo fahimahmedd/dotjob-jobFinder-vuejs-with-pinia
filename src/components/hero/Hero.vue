@@ -115,4 +115,36 @@
 .hero-content {
   z-index: 10;
 }
+
+@media (min-width: 280px) and (max-width: 960.98px) {
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    height: auto;
+    max-height: auto;
+  }
+  .hero-title {
+    font-size: 60px;
+    line-height: 66px;
+  }
+  .floating-item {
+    height: 60px;
+    width: 60px;
+    .float-img {
+      max-height: 50px;
+      max-width: 50px;
+    }
+  }
+  .hero-search-container {
+    max-width: 750px;
+    width: 100%;
+    gap: 5px;
+  }
+  .text-subtitle-1 {
+    font-size: 14px !important;
+  }
+  .text-subtitle-1 br {
+    display: none;
+  }
+}
 </style>

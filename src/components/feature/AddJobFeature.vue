@@ -11,7 +11,7 @@
       </div>
 
       <div class="guide-container">
-        <div>
+        <div class="d-none d-md-flex">
           <v-img src="../../assets/images/feature/shape-line.svg" width="100"></v-img>
         </div>
         <div class="guide-content">
@@ -22,7 +22,7 @@
             Start your journey by creating an account with just a few steps.
           </p>
         </div>
-        <div>
+        <div class="screen-margin">
           <v-img src="../../assets/images/feature/shape-bow.svg" width="170"></v-img>
         </div>
         <div class="guide-content">
@@ -33,7 +33,7 @@
             Craft a profile to showcase your company’s culture, values, and mission.
           </p>
         </div>
-        <div>
+        <div class="screen-margin">
           <v-img src="../../assets/images/feature/shape-bow.svg" width="170"></v-img>
         </div>
         <div class="guide-content">
@@ -44,7 +44,7 @@
             Your are ready to find the perfect candidate. Post your job!
           </p>
         </div>
-        <div>
+        <div class="d-none d-md-flex">
           <v-img src="../../assets/images/feature/shape-line.svg" width="100"></v-img>
         </div>
       </div>
@@ -92,6 +92,26 @@
         line-height: 40px;
       }
     }
+  }
+}
+
+@media (min-width: 280px) and (max-width: 991.98px) {
+  .guide-container {
+    flex-direction: column;
+  }
+  .screen-margin {
+    margin: 20px 0;
+  }
+  .text-h2 {
+    font-size: 50px !important;
+  }
+}
+@media (min-width: 600px) and (max-width: 960.98px) {
+  .guide-container {
+    flex-direction: row;
+  }
+  .screen-margin {
+    display: none;
   }
 }
 </style>

@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
+
 const props = defineProps({
   companyItem: {
     type: Object,
@@ -14,20 +15,20 @@ const props = defineProps({
       <div class="profile-content d-flex">
         <div class="profile-img">
           <v-img
-            :src="'data:image/png;base64,' + companyItem.logo"
+            :src="'data:image/png;base64,' + companyItem?.logo"
             height="150"
             width="150"
             rounded="lg"
           >
           </v-img>
         </div>
-        <div class="pt-10 ml-5 w-100">
-          <div class="text-h5 font-weight-bold mt-5">{{ companyItem.name }}</div>
+        <div class="pt-10 ml-5 w-100 p-adjust m-adjust">
+          <div class="text-h5 font-weight-bold mt-5">{{ companyItem?.name }}</div>
           <div class="text-subtitle-1 text-color font-weight-medium mt-1">
-            {{ companyItem.tagline }}
+            {{ companyItem?.tagline }}
           </div>
           <p class="text-color mt-2" style="font-size: 14px; line-height: 20px">
-            {{ companyItem.description }}
+            {{ companyItem?.description }}
           </p>
         </div>
       </div>
@@ -55,5 +56,22 @@ const props = defineProps({
   overflow: hidden;
   padding: 10px;
   max-height: 150px;
+  max-width: 150px;
+}
+
+@media (min-width: 280px) and (max-width: 599.98px) {
+  .profile-content {
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -100px;
+  }
+  .p-adjust {
+    padding: 0px !important;
+  }
+  .m-adjust {
+    margin: 0px !important;
+  }
 }
 </style>

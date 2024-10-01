@@ -1,11 +1,13 @@
 <script setup>
 import { useAuthenticationStore } from "@/stores/useAuthentication";
+import { useCompanysStore } from "@/stores/useCompanys";
 import { computed, ref } from "vue";
 
 const useAuth = useAuthenticationStore();
-
+const useCompany = useCompanysStore();
 const email = ref();
 const password = ref();
+const showError = ref("");
 
 const login = async () => {
   try {
@@ -17,10 +19,15 @@ const login = async () => {
     });
 
     if (res.response.value.status === 200) {
+      const userId = res.response.value.data.id;
+      useCompany.getUser(userId);
+      email.value = "";
+      password.value = "";
       useAuth.drawerHandeler();
     }
   } catch (error) {
-    console.log(error, "error");
+    console.log(error);
+    showError.value = "Login failed, please check your credentials.";
   }
 };
 
@@ -43,7 +50,7 @@ const rules = {
 </script>
 
 <template>
-  <v-card width="100%" max-width="400" elevation="0" class="mx-auto mt-10 pl-8">
+  <v-card width="100%" max-width="400" elevation="0" class="mx-auto mt-10 pl-8 auth-card">
     <div class="text-h5 font-weight-black text-uppercase text-center">Sign In</div>
     <v-card-text class="text-medium-emphasis text-center text-subtitle-2">
       Signin your Comapny Profile for unlock new career paths & explore a wide range of
@@ -80,9 +87,9 @@ const rules = {
       class="mt-3"
       @keydown.enter="login"
     ></v-text-field>
-    <!-- <v-card-text class="text-medium-emphasis text-center text-caption">
-      Login Failed
-    </v-card-text> -->
+    <v-card-text v-if="showError" class="text-medium-emphasis text-center text-caption">
+      {{ showError }}
+    </v-card-text>
     <v-btn
       @click="login"
       color="primary"
@@ -105,4 +112,11 @@ const rules = {
   </v-card>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@media (min-width: 280px) and (max-width: 599.98px) {
+  .auth-card {
+    padding-left: 0px !important;
+    padding: 20px !important;
+  }
+}
+</style>

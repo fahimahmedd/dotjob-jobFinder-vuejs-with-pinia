@@ -1,7 +1,12 @@
 <script setup>
 import { useJobsStore } from "@/stores/useJobs";
 import DetailContent from "./DetailContent.vue";
+import { computed } from "vue";
 const jobs = useJobsStore();
+
+const jobDetailItem = computed(() => {
+  return jobs.singlePostDetail;
+});
 </script>
 
 <template>
@@ -24,7 +29,7 @@ const jobs = useJobsStore();
     >
     </v-btn>
     <div class="job-detail-container">
-      <DetailContent />
+      <DetailContent :job-detail="jobDetailItem" />
     </div>
     <div class="drawer-head"></div>
   </v-navigation-drawer>

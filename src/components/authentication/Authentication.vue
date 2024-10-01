@@ -68,6 +68,7 @@ const showSnacbarTrigger = () => {
   position: absolute;
   right: 10px;
   top: 10px;
+  z-index: 10;
 }
 .drawer-container {
   height: 100%;

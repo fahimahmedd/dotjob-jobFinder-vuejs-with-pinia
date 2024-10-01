@@ -1,6 +1,8 @@
 <template>
   <Hero />
-  <FeaturePost :all-company="allCompany" />
+  <JobFeatureLoading v-if="useCompanys.loadingCompanys" />
+  <FeaturePost v-else :all-company="allCompany" />
+
   <AddJobFeature />
 </template>
 

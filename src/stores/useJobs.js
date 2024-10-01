@@ -5,9 +5,12 @@ import { useAxios } from "@vueuse/integrations/useAxios";
 
 export const useJobsStore = defineStore("useJobs", () => {
   // Jobs Details Drawer
+
+  const singlePostDetail = ref()
   const drawer = ref(false);
-  const drawerHandeler = () => {
-    return (drawer.value = !drawer.value);
+  const drawerHandeler = ( id ) => {
+    drawer.value = !drawer.value
+    return singlePostDetail.value = jobs.value.find( item => item.id == id )
   };
 
   // All Jobs
@@ -35,6 +38,7 @@ export const useJobsStore = defineStore("useJobs", () => {
     loadingJobs,
     posts,
     loadingPosts,
-    fetchCompanyPosts
+    fetchCompanyPosts,
+    singlePostDetail
   };
 });
