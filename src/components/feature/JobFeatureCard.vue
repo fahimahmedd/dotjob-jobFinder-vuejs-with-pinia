@@ -1,14 +1,14 @@
 <template>
   <v-card class="feature-card border" elevation="0">
     <v-card-item class="text-center mt-3">
-      <v-img :src="'data:image/png;base64,' + company.logo" max-height="45"></v-img>
+      <v-img :src="'data:image/png;base64,' + company.logo" max-height="65"></v-img>
       <div class="comapny-info mt-5">
         <div class="text-subtitle-1 font-weight-bold">{{ company.name }}</div>
         <div class="text-subtitle-2 text-grey-darken-2 mt-2 font-weight-regular">
           {{ company.total_post }} Job post available
         </div>
       </div>
-      <div class="text-subtitle-2 font-weight-regular mt-5 d-none d-sm-flex">
+      <div class="text-subtitle-2 font-weight-regular mt-5 d-none d-sm-block">
         {{ company.tagline }}
       </div>
       <v-btn

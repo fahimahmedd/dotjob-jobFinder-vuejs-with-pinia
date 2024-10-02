@@ -33,10 +33,10 @@ const user = computed(() => {
   <div class="app-header">
     <v-container class="d-flex align-center justify-space-between pa-0 px-3 d-sm-pa-0">
       <!-- App logo -->
-      <div class="log">
+      <router-link to="/" class="log">
         <v-img width="130" aspect-ratio="16/9" src="../../assets/images/logo/logo.png">
         </v-img>
-      </div>
+      </router-link>
 
       <!-- Navigation links -->
       <div class="login-btn d-flex align-center">

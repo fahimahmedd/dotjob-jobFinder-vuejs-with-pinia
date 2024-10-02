@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="page-top"
-    style="background-image: url('src/assets/images/hero/hero-bg.png')"
-  >
+  <div class="page-top">
     <v-container>
       <JobSearch />
     </v-container>
@@ -15,6 +12,7 @@ import JobSearch from "./JobSearch.vue";
 
 <style lang="scss" scoped>
 .page-top {
+  background-image: url(../../assets/images/hero/hero-bg.png);
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;

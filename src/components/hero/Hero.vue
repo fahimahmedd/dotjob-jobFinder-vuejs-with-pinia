@@ -1,5 +1,5 @@
 <template>
-  <div class="hero" style="background-image: url('src/assets/images/hero/hero-bg.png')">
+  <div class="hero">
     <v-container class="d-flex justify-center align-center">
       <v-card
         width="100%"
@@ -43,6 +43,7 @@
 
 <style scoped lang="scss">
 .hero {
+  background-image: url(../../assets/images/hero/hero-bg.png);
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;

@@ -25,8 +25,7 @@ const register = async () => {
 
   try {
     if (res.response.value.status === 201) {
-      const userId = res.response.value.data.id;
-      useCompany.getUser(userId);
+      useCompany.executeCompanys();
       useAuth.authSwitch();
       emit("showSnacbar");
     }

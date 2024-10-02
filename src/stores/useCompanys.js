@@ -27,9 +27,11 @@ export const useCompanysStore = defineStore("useCompany", () => {
   };
 
   const getUser = (id) => {
-    if (companys.value) {
+    console.log(id)
+    if (companys.value && companys.value.length) {
+      console.log(companys.value)
       user.value = companys.value.find((item) => item.id == id) || null;
-
+      console.log(user.value)
       if (user.value) {
         setUserLocalstore(user.value);
       }
